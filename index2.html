@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="bootstrap.css"> -->
+    <link rel="stylesheet" href="style.css">
+    <!-- add fontawesome, google fonts -->
+    <!-- // -->
+    <title>Weather Report</title>
+</head>
+
+<body>
+  <div class="container-fluid text-center">
+    <div class="input-group m-auto pt-5 pb-2" style="width:50%">
+      <input type="text" class="form-control" id="desired-location" placeholder="Enter region/city name" aria-label="Example text with button addon" aria-describedby="location-submit-btn">
+      <button class="btn btn-secondary" type="button" id="desired-location-btn">View Weather</button>
+    </div>
+    <small>OR,</small>
+    <div class="py-2">
+      <button type="button" class="btn btn-secondary px-4" id="my-location-btn">Weather on My Location</button>
+    </div>
+    <hr style="border-top: 8px solid #bbb; border-radius: 5px;" class="rounded">
+    <div class="region-name h3 pt-5">Region/City</div>
+    <div class="temperature-section d-flex flex-row pt-5 justify-content-center">
+      <div class="temperature-value h2">00.0</div><div class="degree-unit h6 px-1">&#176;C</div>
+    </div>
+    <h5 class="weather-condition">Weather Condition</h5>
+    <p class="weather-details lead">Some words on current weather condition.</p>
+  </div>
+</body>
+
+<!-- script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- <script src="bootstrap.js" charset="utf-8"></script> -->
+<script src="app.js" charset="utf-8"></script>
+<!-- // -->
+</html>
