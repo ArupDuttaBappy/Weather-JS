@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="cdn/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css" integrity="sha512-r/Gan7PMSRovDus++vDS2Ayutc/cSdl268u047n4z+k7GYuR7Hiw71FsT3QQxdKJBVHYttOJ6IGLnlM9IoMToQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- add icon, google font stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- // -->
+    <title>Weather Daily</title>
+</head>
+
+<body class="bg-light">
+
+    <div class="container" style="background-color:#28688C; color:white; padding:15px">
+      <div class="row">
+        <!-- left panel -->
+        <div class="col-md-3 col-sm-5 col-xs-12 row text-center">
+          <div class="col-sm-12 col-6">
+            <h5><span id="locCityName">Dhaka</span><span>, </span><span id="locCountryName">BD</span></h5>
+            <small style="opacity:0.8">Longitude: <span id="locLongitude">99.88</span>, Latitude: <span id="locLatitude">12.12</span></small>
+          </div>
+          <div class="col-sm-12 col-6">
+            <h6 id="locDate">Sunday, January 30, 2022</h6>
+            <h6 id="locTime">10:17 AM (GMT+6)</h6>
+          </div>
+          <div class="col-sm-12 col-12">
+            <small>Sunrise: <span id="locSunrise">99.88</span>, Sunset: <span id="locSunset">12.12</span></small><br>
+            <a id="refreshBtn" href="#"><i class="fa fa-refresh fa-fw" aria-hidden="true"></i> Refresh</a> <!-- icon -->
+          </div>
+        </div>
+        <!-- Center panel -->
+        <div class="col-md-4 col-sm-7 col-xs-12 row text-center">
+          <div class="col-lg-4 col-12">
+            <span><i class="fa fa-cloud" id ="weatherIcon" style="font-size:110px;" aria-hidden="true"></i></span> <!-- icon -->
+          </div>
+          <div class="col-lg-4 col-12">
+            <h6 id="locTemp">12<span>°</span></h6><br> <!-- degree -->
+            <h6 style="opacity:0.8;font-size:10px">Max: <span id="maxTemp">00.00</span>° <br> Min: <span id="minTemp">00.00</span>°</h6> <!-- degree -->
+            <h4><a href="#" class="active" id="celcius">°C</a> | <a href="#" id="farenheit">°F</a></h4>
+          </div>
+          <div class="col-lg-4 col-12">
+            <h6 id="weatherMain">Clear Sky</h6>
+            <p id="weatherDesc" style="opacity:0.8">Some description goes here</p>
+          </div>
+        </div>
+        <!-- right panel -->
+        <div class="col-md-5 col-sm-12 col-xs-12 row text-left">
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+            <h6>Humidity: <span id="humidity">85</span>%</h6>
+            <h6>Feels Like: <span id="tempFeelsLike">16</span>°</h6> <!-- degree -->
+            <h6>Visibility: <span id="visibility">1000</span> m</h6>
+            <h6>Cloudiness: <span id="cloud">none</span></h6>
+          </div>
+          <div class="col-lg-6 col-md-12 col-sm-6 col-6">
+            <h6>Wind Speed: <span id="windSpeed">6.66</span> m/s</h6>
+            <h6>Wind Direction: <span id="windDirection">30</span>°</h6>
+            <h6>Rain: <span id="rain">none</span></h6>
+            <h6>Snow: <span id="snow">none</span></h6>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+<!-- script -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- <script src="cdn/js/bootstrap.js" charset="utf-8"></script> -->
+<script src="app.js" charset="utf-8"></script>
+<!-- // -->
+</html>

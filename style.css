@@ -1,4 +1,22 @@
-body{
-  background-color: rgb(29, 134, 163);
+a {
   color: white;
+  opacity: 0.6;
+  text-decoration: none;
+}
+
+a:hover, a:active, a:focus{
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+}
+
+.active {
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+}
+
+#locTemp{
+  font-size: 5.5em;
+  line-height: 0.7;
 }
