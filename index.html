@@ -20,10 +20,10 @@
   <div class="container wrapper searchWrapper">
     <div class="input-group row">
       <input type="search" id="searchCityInput" class="form-control col-lg-6 col-9" placeholder="Type a city name..." aria-label="Search" aria-describedby="search-addon"/>
-      <button type="button" id="searchCityBtn" class="btn btn-outline-light col-lg-2 col-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Weather update in this city"><i class="fas fa-2x fa-search-location"></i></button>
+      <button type="button" id="searchCityBtn" class="btn btn-outline-light col-lg-2 col-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Weather update in this city"><i class="fas fa-2x fa-search-location"></i></button> <!-- icon -->
       <div class="col-lg-4 col-3">
         <span type="button" id="getUserLocationBtn" class="btn btn-outline-light text-white" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Weather in my location" style="width:100%">
-          <i class="fas fa-2x fa-map-marker-alt"></i>
+          <i class="fas fa-2x fa-map-marker-alt"></i> <!-- icon -->
         </span>
       </div>
     </div>
@@ -35,14 +35,14 @@
       <div class="col-md-3 col-sm-5 col-xs-12 row text-center">
         <div class="col-sm-12 col-6">
           <h5><span id="locCityName">Dhaka</span><span>, </span><span id="locCountryName">BD</span></h5>
-          <small style="opacity:0.8">Longitude: <span id="locLongitude">99.88</span>, Latitude: <span id="locLatitude">12.12</span></small>
+          <small style="opacity:0.8">Longitude: <span id="locLongitude">00.00</span><br>Latitude: <span id="locLatitude">00.00</span></small>
         </div>
         <div class="col-sm-12 col-6">
-          <h6 id="locDate">Sunday, January 30, 2022</h6>
-          <h6 id="locTime">10:17 AM (GMT+6)</h6>
+          <h6 id="locDate">Friday, January 1, 0000</h6>
+          <h6 id="locTime">00:00 AM (GMT+6)</h6>
         </div>
         <div class="col-sm-12 col-12">
-          <small>Sunrise: <span id="locSunrise">99.88</span>, Sunset: <span id="locSunset">12.12</span></small><br>
+          <small>Sunrise: <span id="locSunrise">00:00:00 AM</span><br>Sunset: <span id="locSunset">00:00:00 PM</span></small><br>
           <a id="refreshBtn" href="#"><i class="fas fa-sync-alt" aria-hidden="true"></i> Refresh</a> <!-- icon -->
         </div>
       </div>
@@ -52,26 +52,26 @@
           <span><i class="fas fa-cloud-moon-rain" id ="weatherIcon" style="font-size:110px;" aria-hidden="true"></i></span> <!-- icon -->
         </div>
         <div class="col-lg-4 col-12">
-          <h6 id="locTemp">12<span>°</span></h6><br> <!-- degree -->
+          <h6 id="locTemp">00.00<span>°</span></h6><br> <!-- degree -->
           <h6 style="opacity:0.8;font-size:10px">Max: <span id="maxTemp">00.00</span>° <br> Min: <span id="minTemp">00.00</span>°</h6> <!-- degree -->
-          <h4><a href="#" class="active" id="celcius">°C</a> | <a href="#" id="farenheit">°F</a></h4>
+          <h4><a href="#" class="active" id="toCelcius">°C</a> | <a href="#" id="toFarenheit">°F</a></h4>
         </div>
-        <div class="col-lg-4 col-12">
-          <h6 id="weatherMain">Clear Sky</h6>
-          <p id="weatherDesc" style="opacity:0.8">Some description goes here</p>
+        <div class="col-lg-12 col-12">
+          <h5 id="locWeatherMain">Weather title</h5>
+          <p id="locWeatherDesc" style="opacity:0.8">Some description goes here</p>
         </div>
       </div>
       <!-- right panel -->
       <div class="col-md-5 col-sm-12 col-xs-12 row text-left">
         <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-          <h6>Humidity: <span id="humidity">85</span>%</h6>
-          <h6>Feels Like: <span id="tempFeelsLike">16</span>°</h6> <!-- degree -->
-          <h6>Visibility: <span id="visibility">1000</span> m</h6>
-          <h6>Cloudiness: <span id="cloud">none</span></h6>
+          <h6>Humidity: <span id="humidity">00</span>%</h6>
+          <h6>Feels Like: <span id="tempFeelsLike">00.00</span>°</h6> <!-- degree -->
+          <h6>Visibility: <span id="visibility">000</span> km</h6>
+          <h6>Cloudiness: <span id="cloud">00</span>%</h6>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-6 col-6">
-          <h6>Wind Speed: <span id="windSpeed">6.66</span> m/s</h6>
-          <h6>Wind Direction: <span id="windDirection">30</span>°</h6>
+          <h6>Wind Speed: <span id="windSpeed">none</span> m/s</h6>
+          <h6>Wind Direction: <span id="windDirection">0</span>°</h6>
           <h6>Rain: <span id="rain">none</span></h6>
           <h6>Snow: <span id="snow">none</span></h6>
         </div>
