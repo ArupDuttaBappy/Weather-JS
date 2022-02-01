@@ -1,4 +1,26 @@
-a {
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+button[type="button"]:focus,
+.uneditable-input:focus {
+  border-color: white;
+  box-shadow: 0 0px 0px #28688C;
+  outline: 0 none;
+}
+
+a{
   color: white;
   opacity: 0.6;
   text-decoration: none;
@@ -10,10 +32,28 @@ a:hover, a:active, a:focus{
   opacity: 1;
 }
 
-.active {
+.active{
   color: white;
   text-decoration: none;
   opacity: 1;
+}
+
+.wrapper{
+  /* border-radius: 8px; */
+  /* margin: 10px auto; */
+}
+
+.searchWrapper{
+  padding:15px;
+  border-style:solid;
+  border-width:5px;
+  border-color:#28688C;
+  background-color:#28688C;
+}
+
+.searchWrapper button[type="button"]:hover{
+  background-color: #28688C;
+  color: white;
 }
 
 #locTemp{
