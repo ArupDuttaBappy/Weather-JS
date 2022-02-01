@@ -51,7 +51,7 @@ a:hover, a:active, a:focus{
   background-color:#28688C;
 }
 
-.searchWrapper button[type="button"]:hover{
+.searchWrapper button[type="button"]:hover, .searchWrapper span[type="button"]:hover{
   background-color: #28688C;
   color: white;
 }
