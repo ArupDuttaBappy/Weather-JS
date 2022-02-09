@@ -1,11 +1,13 @@
 window.addEventListener("load", () => {
 
-  getUserLocation();
+  getUserLocationData();
 
   const api_key = "fa9453a812eb372fb8ff3d1bf67ed332";
   const search_city_input = document.getElementById('searchCityInput');
   const search_city_btn = document.getElementById('searchCityBtn');
   const get_user_location_btn = document.getElementById('getUserLocationBtn');
+  let search_type;
+  let search_key = [];
 
   // left panel selectors
   const loc_city_name = document.getElementById('locCityName');
@@ -82,6 +84,20 @@ window.addEventListener("load", () => {
     })
   }
 
+  // Refresh function
+  refreshBtn.addEventListener("click", function() {
+    if(search_type == 1)
+    {
+      console.log(search_key[0]);
+      populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?q=${search_key[0]}&appid=${api_key}&units=metric`);
+    }
+    else if(search_type == 2)
+    {
+      console.log(search_key[0] + " , " + search_key[1]);
+      populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?lat=${search_key[0]}&lon=${search_key[1]}&appid=${api_key}&units=metric`);
+    }
+  });
+
   // "Enter" key
   search_city_input.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
@@ -97,15 +113,17 @@ window.addEventListener("load", () => {
     else {
       let search_box_city_name = search_city_input.value;
       // alert(search_box_city_name);
+      search_type = 1;
+      search_key[0] = search_box_city_name;
       populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?q=${search_box_city_name}&appid=${api_key}&units=metric`);
     }
   });
 
   get_user_location_btn.addEventListener("click", function() {
-    getUserLocation();
+    getUserLocationData();
   });
 
-  function getUserLocation() {
+  function getUserLocationData() {
     if (navigator.geolocation) {
       // returns a coordinates object to the function specified in the parameter -- getGeoPosition
       navigator.geolocation.getCurrentPosition(getGeoPosition, showGetPositionError);
@@ -117,6 +135,9 @@ window.addEventListener("load", () => {
   function getGeoPosition(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
+    search_type = 2;
+    search_key[0] = latitude;
+    search_key[1] = longitude;
     populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`);
   }
 
