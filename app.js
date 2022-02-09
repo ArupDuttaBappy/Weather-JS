@@ -107,12 +107,30 @@ window.addEventListener("load", () => {
   toCelcius.addEventListener("click", function() {
     to_farenheit.classList.remove("active");
     to_celcius.classList.add("active");
+
+    loc_temp.textContent = convertToCel(loc_temp.textContent);
+    max_temp.textContent = convertToCel(max_temp.textContent);
+    min_temp.textContent = convertToCel(min_temp.textContent);
+    temp_feels_like.textContent = convertToCel(temp_feels_like.textContent);
   });
 
   toFarenheit.addEventListener("click", function() {
     to_celcius.classList.remove("active");
     to_farenheit.classList.add("active");
+
+    loc_temp.textContent = convertToFar(loc_temp.textContent);
+    max_temp.textContent = convertToFar(max_temp.textContent);
+    min_temp.textContent = convertToFar(min_temp.textContent);
+    temp_feels_like.textContent = convertToFar(temp_feels_like.textContent);
   });
+
+  function convertToCel(farVal) {
+    return ((farVal - 32) * 5 / 9).toFixed(2);
+  }
+
+  function convertToFar(celVal) {
+    return ((celVal * 9 / 5) + 32).toFixed(2);
+  }
 
 
   // "Enter" key
