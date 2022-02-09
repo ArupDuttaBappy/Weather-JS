@@ -18,15 +18,16 @@ window.addEventListener("load", () => {
   // const loc_time = document.getElementById('locTime');
   const loc_sunrise = document.getElementById('locSunrise');
   const loc_sunset = document.getElementById('locSunset');
-  const refresh_btn = document.getElementById('refreshBtn'); // refresh weather data
+  const refresh_btn = document.getElementById('refreshBtn');
+  const refresh_icon = document.getElementById('refreshIcon');
 
   // center panel selectors
   const weather_icon = document.getElementById('weatherIcon'); // from main.weather.icon
   const loc_temp = document.getElementById('locTemp');
   const max_temp = document.getElementById('maxTemp');
   const min_temp = document.getElementById('minTemp');
-  const to_celcius = document.getElementById('toCelcius'); //
-  const to_farenheit = document.getElementById('toFarenheit'); //
+  const to_celcius = document.getElementById('toCelcius');
+  const to_farenheit = document.getElementById('toFarenheit');
   const loc_weather_main = document.getElementById('locWeatherMain');
   const loc_weather_desc = document.getElementById('locWeatherDesc');
 
@@ -46,6 +47,7 @@ window.addEventListener("load", () => {
       return response.json();
     })
     .then(data => {
+      refresh_icon.classList.remove("fa-spin");
       console.log(data);
       if(data.cod == 404){
         alert("code " + data.cod + " - " + data.message+"!");
@@ -86,6 +88,8 @@ window.addEventListener("load", () => {
 
   // Refresh function
   refreshBtn.addEventListener("click", function() {
+    refresh_icon.classList.add("fa-spin");
+
     if(search_type == 1)
     {
       console.log(search_key[0]);
@@ -98,6 +102,19 @@ window.addEventListener("load", () => {
     }
   });
 
+
+  // converter - toCelcius toFarenheit
+  toCelcius.addEventListener("click", function() {
+    to_farenheit.classList.remove("active");
+    to_celcius.classList.add("active");
+  });
+
+  toFarenheit.addEventListener("click", function() {
+    to_celcius.classList.remove("active");
+    to_farenheit.classList.add("active");
+  });
+
+
   // "Enter" key
   search_city_input.addEventListener("keyup", function(event) {
     if (event.keyCode === 13) {
@@ -105,6 +122,7 @@ window.addEventListener("load", () => {
       search_city_btn.click();
     }
   });
+
 
   search_city_btn.addEventListener("click", function() {
     if(search_city_input.value == "") {
@@ -119,9 +137,12 @@ window.addEventListener("load", () => {
     }
   });
 
+
   get_user_location_btn.addEventListener("click", function() {
+    search_city_input.value = "";
     getUserLocationData();
   });
+
 
   function getUserLocationData() {
     if (navigator.geolocation) {

@@ -26,21 +26,21 @@ a{
   text-decoration: none;
 }
 
-a:hover, a:active, a:focus{
+a:hover{
   color: white;
   text-decoration: none;
   opacity: 1;
 }
 
-.active{
+a.active{
   color: white;
   text-decoration: none;
   opacity: 1;
 }
 
 .wrapper{
-  /* border-radius: 8px; */
-  /* margin: 10px auto; */
+  /* border-radius: 8px;
+  box-shadow: 1px 5px 25px 3px #444; */
 }
 
 .searchWrapper{

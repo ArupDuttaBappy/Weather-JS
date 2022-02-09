@@ -17,10 +17,10 @@
 
 <body class="bg-light">
 
-  <div class="container wrapper searchWrapper">
+  <div class="container wrapper searchWrapper mt-4">
     <div class="input-group row">
       <input type="search" id="searchCityInput" class="form-control col-lg-6 col-9" placeholder="Type a city name..." aria-label="Search" aria-describedby="search-addon"/>
-      <button type="button" id="searchCityBtn" class="btn btn-outline-light col-lg-2 col-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Weather update in this city"><i class="fas fa-2x fa-search-location"></i></button> <!-- icon -->
+      <button type="button" id="searchCityBtn" class="btn btn-outline-light col-lg-2 col-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Weather update in the city"><i class="fas fa-2x fa-search-location"></i></button> <!-- icon -->
       <div class="col-lg-4 col-3">
         <span type="button" id="getUserLocationBtn" class="btn btn-outline-light text-white" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Weather in my location" style="width:100%">
           <i class="fas fa-2x fa-map-marker-alt"></i> <!-- icon -->
@@ -43,7 +43,7 @@
         </div>
         <div class="col-sm-12 col-12">
           <small>Sunrise: <span id="locSunrise">00:00:00 AM</span><br>Sunset: <span id="locSunset">00:00:00 PM</span></small><br>
-          <a id="refreshBtn" href="#"><i class="fas fa-sync-alt" aria-hidden="true"></i> Refresh</a> <!-- icon -->
+          <a id="refreshBtn" href="#"><i class="fas fa-sync-alt" id="refreshIcon" aria-hidden="true"></i> Refresh</a> <!-- icon -->
         </div>
       </div>
       <!-- Center panel -->
