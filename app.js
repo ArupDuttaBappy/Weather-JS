@@ -2,7 +2,7 @@ window.addEventListener("load", () => {
 
   getUserLocationData();
 
-  const api_key = "fa9453a812eb372fb8ff3d1bf67ed332";
+  let api_key = config.secret_api_key;
   const search_city_input = document.getElementById('searchCityInput');
   const search_city_btn = document.getElementById('searchCityBtn');
   const get_user_location_btn = document.getElementById('getUserLocationBtn');
