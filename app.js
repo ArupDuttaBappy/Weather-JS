@@ -50,7 +50,7 @@ window.addEventListener("load", () => {
       refresh_icon.classList.remove("fa-spin");
       console.log(data);
       if(data.cod == 404){
-        alert("code " + data.cod + " - " + data.message+"!");
+        alert("code " + data.cod + " - " + data.message + "!");
       }
       else {
         // left panel
@@ -197,8 +197,5 @@ window.addEventListener("load", () => {
       break;
     }
   }
-
-  // daily weather forecast
-  
 
 });
