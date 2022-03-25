@@ -39,8 +39,8 @@ a.active{
 }
 
 .wrapper{
-  /* border-radius: 8px;
-  box-shadow: 1px 5px 25px 3px #444; */
+  /* border-radius: 8px; */
+  /* box-shadow: 1px 5px 25px 3px #444; */
 }
 
 .searchWrapper{
@@ -59,4 +59,14 @@ a.active{
 #locTemp{
   font-size: 5.5em;
   line-height: 0.7;
+}
+
+.dailyForecastCard{
+  min-width: 100px;
+  border: 3px solid #28688C;
+  margin-right: 5px;
+  padding: 10px;
+  border-radius: 6px;
+  background-color: #28688C;
+  color: white;
 }

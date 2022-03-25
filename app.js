@@ -87,7 +87,7 @@ window.addEventListener("load", () => {
   }
 
   // Refresh function
-  refreshBtn.addEventListener("click", function() {
+  refresh_btn.addEventListener("click", function() {
     refresh_icon.classList.add("fa-spin");
 
     if(search_type == 1)
@@ -104,7 +104,7 @@ window.addEventListener("load", () => {
 
 
   // converter - toCelcius toFarenheit
-  toCelcius.addEventListener("click", function() {
+  to_celcius.addEventListener("click", function() {
     to_farenheit.classList.remove("active");
     to_celcius.classList.add("active");
 
@@ -114,7 +114,7 @@ window.addEventListener("load", () => {
     temp_feels_like.textContent = convertToCel(temp_feels_like.textContent);
   });
 
-  toFarenheit.addEventListener("click", function() {
+  to_farenheit.addEventListener("click", function() {
     to_celcius.classList.remove("active");
     to_farenheit.classList.add("active");
 
@@ -197,5 +197,8 @@ window.addEventListener("load", () => {
       break;
     }
   }
+
+  // daily weather forecast
+  
 
 });
