@@ -3,6 +3,8 @@ window.addEventListener("load", () => {
   getUserLocationData();
 
   let api_key = config.secret_api_key;
+  let geocode_key = config.google_geocoding_api;
+
   const search_city_input = document.getElementById('searchCityInput');
   const search_city_btn = document.getElementById('searchCityBtn');
   const get_user_location_btn = document.getElementById('getUserLocationBtn');
@@ -86,6 +88,20 @@ window.addEventListener("load", () => {
     })
   }
 
+  function convertCityToLatLon(cityname) {
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=dhaka&key=${geocode_key}`)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      console.log("google geocode");
+      console.log(data);
+    })
+
+    populateForecastData(latitude, longitude);
+  }
+
+
   // Refresh function
   refresh_btn.addEventListener("click", function() {
     refresh_icon.classList.add("fa-spin");
@@ -152,6 +168,7 @@ window.addEventListener("load", () => {
       search_type = 1;
       search_key[0] = search_box_city_name;
       populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?q=${search_box_city_name}&appid=${api_key}&units=metric`);
+      convertCityToLatLon(search_box_city_name);
     }
   });
 
@@ -178,6 +195,7 @@ window.addEventListener("load", () => {
     search_key[0] = latitude;
     search_key[1] = longitude;
     populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`);
+    populateForecastData(latitude, longitude);
   }
 
   // user location: handling errors and rejections
