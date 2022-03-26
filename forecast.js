@@ -1,13 +1,24 @@
+
 let api_key = config.secret_api_key;
+let daily_forecast_panel = document.getElementById("dailyForecastPanel");
 
 function populateForecastData(lat, lon){
-  api_fetch_call = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
+  api_call = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
 
-  fetch(api_fetch_call)
+  fetch(api_call)
   .then(response => {
     return response.json();
   })
   .then(data => {
     console.log(data);
+    data.daily.forEach((dailyunit) => {
+      daily_forecast_panel.innerHTML +=
+      `<div class="dailyForecastCard d-flex flex-column">
+        <div class="">Date ${dailyunit.dt}</div>
+        <div class="">Temperature ${dailyunit.temp.max}</div>
+        <div class="">Feels ${dailyunit.feels_like.day}</div>
+        <div class="">${dailyunit.weather[0].main}</div>
+      </div>`;
+    });
   })
 }

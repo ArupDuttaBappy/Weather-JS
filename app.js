@@ -88,17 +88,15 @@ window.addEventListener("load", () => {
     })
   }
 
+
   function convertCityToLatLon(cityname) {
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=dhaka&key=${geocode_key}`)
     .then(response => {
       return response.json();
     })
     .then(data => {
-      console.log("google geocode");
-      console.log(data);
+      populateForecastData(lat, lon);// send lat & lon from response-data
     })
-
-    populateForecastData(latitude, longitude);
   }
 
 

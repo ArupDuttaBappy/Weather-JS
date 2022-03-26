@@ -39,8 +39,9 @@ a.active{
 }
 
 .wrapper{
-  /* border-radius: 8px; */
-  /* box-shadow: 1px 5px 25px 3px #444; */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 
 .searchWrapper{
