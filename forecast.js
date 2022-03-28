@@ -12,12 +12,14 @@ function populateForecastData(lat, lon){
   .then(data => {
     console.log(data);
     data.daily.forEach((dailyunit) => {
+      let forecast_icon = dailyunit.weather[0].icon;
+      console.log(forecast_icon);
       daily_forecast_panel.innerHTML +=
       `<div class="dailyForecastCard d-flex flex-column">
         <div class="">Date ${dailyunit.dt}</div>
         <div class="">Temperature ${dailyunit.temp.max}</div>
         <div class="">Feels ${dailyunit.feels_like.day}</div>
-        <div class="">${dailyunit.weather[0].main}</div>
+        <div>${forecast_icon}</div>
       </div>`;
     });
   })

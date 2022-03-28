@@ -49,7 +49,7 @@
       <!-- Center panel -->
       <div class="col-md-4 col-sm-7 col-xs-12 row text-center">
         <div class="col-lg-4 col-12">
-          <span><i class="fas fa-cloud-moon-rain" id ="weatherIcon" style="font-size:110px;" aria-hidden="true"></i></span> <!-- icon -->
+          <span id="weatherIcon"></span> <!-- icon -->
         </div>
         <div class="col-lg-4 col-12">
           <h6 id="locTemp" style="font-size:50px">000.00<span>°</span></h6><br> <!-- degree -->
@@ -80,13 +80,7 @@
   </div>
 
   <div class="container mt-3 p-0">
-    <div id="dailyForecastPanel" class="d-flex flex-row text-center" style="overflow-x:scroll;">
-      <!-- <div class="dailyForecastCard d-flex flex-column">
-        <div class="day">Tue</div>
-        <div class="temp">Night - 25.6&#176; C</div>
-        <div class="temp">Day - 35.6&#176; C</div>
-      </div> -->
-    </div>
+    <div id="dailyForecastPanel" class="d-flex flex-row text-center" style="overflow-x:scroll;"></div>
   </div>
 
 </body>
@@ -96,8 +90,7 @@
 <!-- <script src="cdn/js/bootstrap.js" charset="utf-8"></script> -->
 <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.2/mdb.min.js"></script> -->
 <script src="config.js" charset="utf-8"></script>
-<script src="forecast.js" charset="utf-8"></script>
 <script src="app.js" charset="utf-8"></script>
-
+<script src="forecast.js" charset="utf-8"></script>
 <!-- // -->
 </html>

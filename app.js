@@ -24,7 +24,7 @@ window.addEventListener("load", () => {
   const refresh_icon = document.getElementById('refreshIcon');
 
   // center panel selectors
-  const weather_icon = document.getElementById('weatherIcon'); // from main.weather.icon
+  const weather_icon = document.getElementById('weatherIcon');
   const loc_temp = document.getElementById('locTemp');
   const max_temp = document.getElementById('maxTemp');
   const min_temp = document.getElementById('minTemp');
@@ -32,6 +32,27 @@ window.addEventListener("load", () => {
   const to_farenheit = document.getElementById('toFarenheit');
   const loc_weather_main = document.getElementById('locWeatherMain');
   const loc_weather_desc = document.getElementById('locWeatherDesc');
+
+  let weatherIconsMap = {
+  "11d": "fa-solid fa-cloud-bolt",
+  "11n": "fa-solid fa-cloud-bolt",
+  "10d": "fa-regular fa-cloud-bolt-sun",
+  "10n": "fa-regular fa-cloud-bolt-moon",
+  "09d": "fa-duotone fa-cloud-hail-mixed",
+  "09n": "fa-duotone fa-cloud-hail-mixed",
+  "13d": "fa-solid fa-cloud-sleet",
+  "13n": "fa-solid fa-cloud-sleet",
+  "50d": "fa-solid fa-sun-haze",
+  "50n": "fa-solid fa-cloud-fog",
+  "01d": "fa-solid fa-sun-bright",
+  "01n": "fa-solid fa-moon-stars",
+  "02d": "fa-solid fa-sun-cloud",
+  "02n": "fa-solid fa-moon-cloud",
+  "03d": "fa-solid fa-cloud-sun",
+  "03n": "fa-solid fa-cloud-moon",
+  "04d": "fa-solid fa-cloud-sun",
+  "04n": "fa-solid fa-clouds-moon"
+};
 
   // right panel selectors
   const humidity = document.getElementById('humidity');
@@ -70,6 +91,8 @@ window.addEventListener("load", () => {
         let sunset_time = sunset_data.toLocaleTimeString();
         loc_sunset.textContent = sunset_time;
         // center panel
+        let iconcode = data.weather[0].icon;
+        weather_icon.innerHTML = `<i class="${weatherIconsMap[iconcode]}" style="font-size:110px;"></i>`;
         loc_temp.textContent = data.main.temp.toFixed(2);
         max_temp.textContent = data.main.temp_max;
         min_temp.textContent = data.main.temp_min;
@@ -95,6 +118,7 @@ window.addEventListener("load", () => {
       return response.json();
     })
     .then(data => {
+      document.getElementById("dailyForecastPanel").innerHTML = "";
       populateForecastData(lat, lon);// send lat & lon from response-data
     })
   }
@@ -193,6 +217,7 @@ window.addEventListener("load", () => {
     search_key[0] = latitude;
     search_key[1] = longitude;
     populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${api_key}&units=metric`);
+    document.getElementById("dailyForecastPanel").innerHTML = "";
     populateForecastData(latitude, longitude);
   }
 
