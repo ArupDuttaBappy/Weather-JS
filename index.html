@@ -29,13 +29,13 @@
     </div>
   </div>
 
-  <div class="container wrapper" style="background-color:#28688C; color:white; padding:15px;">
+  <div class="container wrapper" style="background-color:#28688C; color:white">
     <div class="row">
       <!-- left panel -->
       <div class="col-md-3 col-sm-5 col-xs-12 row text-center">
         <div class="col-sm-12 col-6">
           <h5><span id="locCityName">Dhaka</span><span>, </span><span id="locCountryName">BD</span></h5>
-          <small style="opacity:0.8">Longitude: <span id="locLongitude">00.00</span><br>Latitude: <span id="locLatitude">00.00</span></small>
+          <small style="opacity:0.8"><span id="locLongitude">00.00</span>, <span id="locLatitude">00.00</span></small>
         </div>
         <div class="col-sm-12 col-6">
           <h6 id="locDateTime">Friday, January 1, 0000</h6>
@@ -48,18 +48,20 @@
       </div>
       <!-- Center panel -->
       <div class="col-md-4 col-sm-7 col-xs-12 row text-center">
-        <div class="col-lg-4 col-12">
+        <div class="col-lg-5 col-12">
           <span id="weatherIcon"></span> <!-- icon -->
+          <h5 id="locWeatherMain">Weather title</h5>
+          <p id="locWeatherDesc" style="opacity:0.8">Some description goes here</p>
         </div>
         <div class="col-lg-4 col-12">
           <h6 id="locTemp" style="font-size:50px">000.00<span>°</span></h6><br> <!-- degree -->
           <h6 style="opacity:0.8;font-size:10px">Max: <span id="maxTemp">00.00</span>° <br> Min: <span id="minTemp">00.00</span>°</h6> <!-- degree -->
           <h4><a href="#" class="active" id="toCelcius">°C</a> | <a href="#" id="toFarenheit">°F</a></h4>
         </div>
-        <div class="col-lg-12 col-12">
+        <!-- <div class="col-lg-12 col-12">
           <h5 id="locWeatherMain">Weather title</h5>
           <p id="locWeatherDesc" style="opacity:0.8">Some description goes here</p>
-        </div>
+        </div> -->
       </div>
       <!-- right panel -->
       <div class="col-md-5 col-sm-12 col-xs-12 row text-left">

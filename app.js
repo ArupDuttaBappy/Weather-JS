@@ -3,7 +3,6 @@ window.addEventListener("load", () => {
   getUserLocationData();
 
   let api_key = config.secret_api_key;
-  let geocode_key = config.google_geocoding_api;
 
   const search_city_input = document.getElementById('searchCityInput');
   const search_city_btn = document.getElementById('searchCityBtn');
@@ -93,13 +92,18 @@ window.addEventListener("load", () => {
 
 
   function convertCityToLatLon(cityname) {
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=dhaka&key=${geocode_key}`)
+    fetch(`city.list.min.json`)
     .then(response => {
       return response.json();
     })
     .then(data => {
-      document.getElementById("dailyForecastPanel").innerHTML = "";
-      populateForecastData(lat, lon);// send lat & lon from response-data
+      let counter = 0;
+      data.forEach((data) => {
+        if(data.name.toLowerCase() == cityname.toLowerCase()) {
+          document.getElementById("dailyForecastPanel").innerHTML = "";
+          populateForecastData(data.coord.lat, data.coord.lon);
+        }
+      });
     })
   }
 
