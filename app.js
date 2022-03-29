@@ -33,26 +33,6 @@ window.addEventListener("load", () => {
   const loc_weather_main = document.getElementById('locWeatherMain');
   const loc_weather_desc = document.getElementById('locWeatherDesc');
 
-  let weatherIconsMap = {
-  "11d": "fa-solid fa-cloud-bolt",
-  "11n": "fa-solid fa-cloud-bolt",
-  "10d": "fa-regular fa-cloud-bolt-sun",
-  "10n": "fa-regular fa-cloud-bolt-moon",
-  "09d": "fa-duotone fa-cloud-hail-mixed",
-  "09n": "fa-duotone fa-cloud-hail-mixed",
-  "13d": "fa-solid fa-cloud-sleet",
-  "13n": "fa-solid fa-cloud-sleet",
-  "50d": "fa-solid fa-sun-haze",
-  "50n": "fa-solid fa-cloud-fog",
-  "01d": "fa-solid fa-sun-bright",
-  "01n": "fa-solid fa-moon-stars",
-  "02d": "fa-solid fa-sun-cloud",
-  "02n": "fa-solid fa-moon-cloud",
-  "03d": "fa-solid fa-cloud-sun",
-  "03n": "fa-solid fa-cloud-moon",
-  "04d": "fa-solid fa-cloud-sun",
-  "04n": "fa-solid fa-clouds-moon"
-};
 
   // right panel selectors
   const humidity = document.getElementById('humidity');

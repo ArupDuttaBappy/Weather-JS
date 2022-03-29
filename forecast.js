@@ -19,7 +19,7 @@ function populateForecastData(lat, lon){
         <div class="">Date ${dailyunit.dt}</div>
         <div class="">Temperature ${dailyunit.temp.max}</div>
         <div class="">Feels ${dailyunit.feels_like.day}</div>
-        <div>${forecast_icon}</div>
+        <div><i class="${weatherIconsMap[forecast_icon]}" style="font-size:50px;"></i></div>
       </div>`;
     });
   })
