@@ -13,13 +13,12 @@ function populateForecastData(lat, lon){
     console.log(data);
     data.daily.forEach((dailyunit) => {
       let forecast_icon = dailyunit.weather[0].icon;
-      console.log(forecast_icon);
       daily_forecast_panel.innerHTML +=
       `<div class="dailyForecastCard d-flex flex-column">
-        <div class="text-center" style="opacity:0.8">9/12</div>
-        <div class="text-center"><h3>00.00</h3></div>
-        <div><i class="fas fa-cloud-sun" style="font-size:30px;"></i></div>
-        <div class="text-center"><b>Main Desc.</b></div>
+        <div class="text-center" style="opacity:0.8;font-size:15px;">9/12</div>
+        <div><i class="fas fa-cloud-sun" style="font-size:20px;"></i></div>
+        <div class="text-center"><b>00.00</b></div>
+        <div class="text-center"><h6>Main Desc.</h6></div>
         <div class="row" style="opacity:0.6">
           <div class="col-6 text-start d-flex flex-column">
             <div>humidity</div>

@@ -98,7 +98,7 @@ window.addEventListener("load", () => {
     })
     .then(data => {
       let counter = 0;
-      data.forEach((data) => {
+      data.forEach((data) => { // Wrong: iterating for multiple cities with the same name, select country
         if(data.name.toLowerCase() == cityname.toLowerCase()) {
           document.getElementById("dailyForecastPanel").innerHTML = "";
           populateForecastData(data.coord.lat, data.coord.lon);
