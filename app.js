@@ -72,7 +72,7 @@ window.addEventListener("load", () => {
         // center panel
         let iconcode = data.weather[0].icon;
         weather_icon.innerHTML = `<i class="${weatherIconsMap[iconcode]}" style="font-size:110px;"></i>`;
-        loc_temp.textContent = data.main.temp.toFixed(2);
+        loc_temp.textContent = data.main.temp.toFixed(2) + '°';
         max_temp.textContent = data.main.temp_max;
         min_temp.textContent = data.main.temp_min;
         loc_weather_main.textContent = data.weather[0].main;
@@ -98,7 +98,7 @@ window.addEventListener("load", () => {
     })
     .then(data => {
       let counter = 0;
-      data.forEach((data) => { // Wrong: iterating for multiple cities with the same name, select country
+      data.forEach((data) => { // Wrong: iterating for multiple cities with the same name, select just one
         if(data.name.toLowerCase() == cityname.toLowerCase()) {
           document.getElementById("dailyForecastPanel").innerHTML = "";
           populateForecastData(data.coord.lat, data.coord.lon);

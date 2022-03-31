@@ -13,27 +13,26 @@ function populateForecastData(lat, lon){
     console.log(data);
     data.daily.forEach((dailyunit) => {
       let forecast_icon = dailyunit.weather[0].icon;
+      let temp = ((dailyunit.temp.max + dailyunit.temp.min)/2).toFixed(2);
       daily_forecast_panel.innerHTML +=
-      `<div class="dailyForecastCard d-flex flex-column">
-        <div class="text-center" style="opacity:0.8;font-size:15px;">9/12</div>
-        <div><i class="fas fa-cloud-sun" style="font-size:20px;"></i></div>
-        <div class="text-center"><b>00.00</b></div>
-        <div class="text-center"><h6>Main Desc.</h6></div>
-        <div class="row" style="opacity:0.6">
-          <div class="col-6 text-start d-flex flex-column">
-            <div>humidity</div>
-            <div>rain</div>
-          </div>
-          <div class="col-6 text-end d-flex flex-column">
-            <div>wind</div>
-            <div>clouds</div>
-          </div>
+      `<div class="dailyForecastCard d-flex flex-column" style="width:12.5%">
+        <div class="text-center" style="opacity:0.8;font-size:15px;">${dailyunit.dt}</div>
+        <div><i class="${weatherIconsMap[forecast_icon]}" style="font-size:20px;"></i></div>
+        <div class="text-center"><b>${temp}°</b></div>
+        <div class="text-center"><h6>${dailyunit.weather[0].main}</h6></div>
+        <div class="row text-center" style="opacity:0.6">
+          <div class="col-4"><i class="fas fa-cloud-rain"></i></div>
+          <div class="col-8"> ${dailyunit.rain || 0}mm</div>
+        </div>
+        <div class="row text-center" style="opacity:0.6">
+          <div class="col-4"><i class="fas fa-wind"></i></div>
+          <div class="col-8"> ${dailyunit.wind_speed || 0}m/s</div>
+        </div>
+        <div class="row text-center" style="opacity:0.6">
+          <div class="col-4"><i class="fas fa-tint"></i></div>
+          <div class="col-8"> ${dailyunit.humidity || 0}%</div>
         </div>
       </div>`;
-      // <div class="">${dailyunit.dt}</div>
-      // <div class="">Temperature ${dailyunit.temp.max}</div>
-      // <div class="">Feels ${dailyunit.feels_like.day}</div>
-      // <div><i class="${weatherIconsMap[forecast_icon]}" style="font-size:50px;"></i></div>
     });
   })
 }
