@@ -2,7 +2,7 @@ let weatherIconsMap = {
   "11d": "fa-solid fa-cloud-bolt",
   "11n": "fa-solid fa-cloud-bolt",
   "10d": "fas fa-cloud-sun",
-  "10n": "fa-regular fa-cloud-bolt-moon",
+  "10n": "fas fa-cloud-moon-rain",
   "09d": "fas fa-cloud-moon-rain",
   "09n": "fas fa-cloud-showers-heavy",
   "13d": "fa fa-snowflake-o",

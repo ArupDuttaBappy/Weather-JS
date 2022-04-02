@@ -10,6 +10,7 @@ window.addEventListener("load", () => {
   let search_type;
   let search_key = [];
 
+  const region_select_radios = document.getElementById("regionSelectRadios");
   // left panel selectors
   const loc_city_name = document.getElementById('locCityName');
   const loc_country_name = document.getElementById('locCountryName');
@@ -90,6 +91,8 @@ window.addEventListener("load", () => {
     })
   }
 
+  // console.log(document.getElementById('exampleRadios2').getAttribute('lat'));
+
 
   function convertCityToLatLon(cityname) {
     fetch(`city.list.min.json`)
@@ -98,12 +101,40 @@ window.addEventListener("load", () => {
     })
     .then(data => {
       let counter = 0;
+      let latest_lat;
+      let latest_lon;
+      let radio_options_container = "";
       data.forEach((data) => { // Wrong: iterating for multiple cities with the same name, select just one
         if(data.name.toLowerCase() == cityname.toLowerCase()) {
-          document.getElementById("dailyForecastPanel").innerHTML = "";
-          populateForecastData(data.coord.lat, data.coord.lon);
+          counter++;
+          latest_lat = data.coord.lat;
+          latest_lon = data.coord.lon;
+          radio_options_container +=
+          `<div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radioOptions" id="${data.id}" lat="${latest_lat}" lon="${latest_lon}">
+            <label class="form-check-label" for="${data.id}">${data.name},${data.state},${data.country}. </label>
+          </div>`
         }
       });
+
+      if(counter <= 1) {
+        document.getElementById("dailyForecastPanel").innerHTML = "";
+        region_select_radios.innerHTML = "";
+        populateForecastData(latest_lat, latest_lon);
+      }
+      else {
+        region_select_radios.innerHTML = radio_options_container;
+        region_select_radios.addEventListener('change', function (e) {
+            let target = e.target;
+            let selected_region_lat = document.getElementById(target.id).getAttribute('lat');
+            console.log(selected_region_lat);
+            let selected_region_lon = document.getElementById(target.id).getAttribute('lon');
+            console.log(selected_region_lon);
+            populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?lat=${selected_region_lat}&lon=${selected_region_lon}&appid=${api_key}&units=metric`);
+            populateForecastData(selected_region_lat, selected_region_lon);
+            region_select_radios.innerHTML = "";
+        });
+      }
     })
   }
 
@@ -176,6 +207,7 @@ window.addEventListener("load", () => {
       search_type = 1;
       search_key[0] = search_box_city_name;
       populateWeatherData(`https://api.openweathermap.org/data/2.5/weather?q=${search_box_city_name}&appid=${api_key}&units=metric`);
+      document.getElementById("dailyForecastPanel").innerHTML = "";
       convertCityToLatLon(search_box_city_name);
     }
   });
