@@ -72,7 +72,7 @@ window.addEventListener("load", () => {
         // center panel
         let iconcode = data.weather[0].icon;
         weather_icon.innerHTML = `<i class="${weatherIconsMap[iconcode]}" style="font-size:110px;"></i>`;
-        loc_temp.textContent = data.main.temp.toFixed(2) + '°';
+        loc_temp.textContent = data.main.temp.toFixed(2);
         max_temp.textContent = data.main.temp_max;
         min_temp.textContent = data.main.temp_min;
         loc_weather_main.textContent = data.weather[0].main;
@@ -111,6 +111,8 @@ window.addEventListener("load", () => {
   // Refresh function
   refresh_btn.addEventListener("click", function() {
     refresh_icon.classList.add("fa-spin");
+    to_farenheit.classList.remove("active");
+    to_celcius.classList.add("active");
 
     if(search_type == 1)
     {

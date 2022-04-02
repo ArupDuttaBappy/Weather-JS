@@ -12,13 +12,18 @@ function populateForecastData(lat, lon){
   .then(data => {
     console.log(data);
     data.daily.forEach((dailyunit) => {
+      let forecast_date_data = new Date(dailyunit.dt * 1000);
+      let forecast_date = forecast_date_data.toUTCString();
+      let forecast_date_str_arr = forecast_date.split(" ");
+
       let forecast_icon = dailyunit.weather[0].icon;
       let temp = ((dailyunit.temp.max + dailyunit.temp.min)/2).toFixed(2);
+
       daily_forecast_panel.innerHTML +=
       `<div class="dailyForecastCard d-flex flex-column" style="width:12.5%">
-        <div class="text-center" style="opacity:0.8;font-size:15px;">${dailyunit.dt}</div>
+        <div class="text-center" style="opacity:0.8;font-size:15px;">${forecast_date_str_arr[1]+" "+forecast_date_str_arr[2]}</div>
         <div><i class="${weatherIconsMap[forecast_icon]}" style="font-size:20px;"></i></div>
-        <div class="text-center"><b>${temp}°</b></div>
+        <div class="text-center"><b>${temp} °C</b></div>
         <div class="text-center"><h6>${dailyunit.weather[0].main}</h6></div>
         <div class="row text-center" style="opacity:0.6">
           <div class="col-4"><i class="fas fa-cloud-rain"></i></div>
